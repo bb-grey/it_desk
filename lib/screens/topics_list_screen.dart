@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_desk/models/category.dart';
+import 'package:it_desk/screens/LoginScreen.dart';
 
 class TopicsListScreen extends StatelessWidget {
   static final String routeName = "topics_list_screen";
@@ -48,7 +49,9 @@ class TopicsListScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, LoginScreen.routeName);
+        },
         child: Icon(Icons.login),
       ),
     );

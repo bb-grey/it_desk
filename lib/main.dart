@@ -18,8 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kCategoryScreenGradient1,
         accentColor: kCategoryScreenGradient2,
       ),
-      // home: HomeScreen(),
-      home: LoginScreen(),
+      home: HomeScreen(),
       routes: routes,
     );
   }

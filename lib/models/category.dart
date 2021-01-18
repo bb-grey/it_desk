@@ -32,7 +32,7 @@ class Category {
       totalPosts: 3,
     ),
     Category(
-      imageAddress: "assets/images/home/software.png",
+      imageAddress: "assets/images/home/virus2.png",
       name: "Virus",
       catImage: "assets/images/category/virus.jpg",
       totalPosts: 3,
