@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:it_desk/models/Topic.dart';
 import 'package:it_desk/models/category.dart';
 import 'package:it_desk/screens/LoginScreen.dart';
+import 'package:it_desk/screens/solution_screen.dart';
 
 class TopicsListScreen extends StatelessWidget {
   static final String routeName = "topics_list_screen";
   @override
   Widget build(BuildContext context) {
     final Category category = ModalRoute.of(context).settings.arguments;
+    List<Topic> topics = Topic.getTopics()
+        .where((element) => element.category == category.categoryTag)
+        .toList();
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -29,23 +34,25 @@ class TopicsListScreen extends StatelessWidget {
             ),
           ),
           SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return Container(
-                  margin: index == 0 ? EdgeInsets.only(top: 20.0) : null,
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+            delegate: SliverChildBuilderDelegate((context, index) {
+              return Container(
+                margin: index == 0 ? EdgeInsets.only(top: 20.0) : null,
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                      context, SolutionScreen.routeName,
+                      arguments: topics[index].assetPath),
                   child: Card(
                     child: ListTile(
-                      leading: Icon(Icons.bike_scooter),
-                      title: Text("Topic Heading"),
+                      leading: Icon(Icons.question_answer_rounded),
+                      title: Text(topics[index].title),
                       subtitle: Text("Post Date"),
                     ),
                   ),
-                );
-              },
-              childCount: 10,
-            ),
-          )
+                ),
+              );
+            }, childCount: topics.length),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
