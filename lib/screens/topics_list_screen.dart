@@ -3,6 +3,7 @@ import 'package:it_desk/models/Topic.dart';
 import 'package:it_desk/models/category.dart';
 import 'package:it_desk/screens/LoginScreen.dart';
 import 'package:it_desk/screens/solution_screen.dart';
+import 'package:intl/intl.dart';
 
 class TopicsListScreen extends StatelessWidget {
   static final String routeName = "topics_list_screen";
@@ -46,7 +47,9 @@ class TopicsListScreen extends StatelessWidget {
                     child: ListTile(
                       leading: Icon(Icons.question_answer_rounded),
                       title: Text(topics[index].title),
-                      subtitle: Text("Post Date"),
+                      subtitle: Text(
+                        DateFormat.yMMMd().format(topics[index].postDate),
+                      ),
                     ),
                   ),
                 ),

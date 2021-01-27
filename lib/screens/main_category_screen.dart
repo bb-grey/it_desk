@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:it_desk/models/category.dart';
+import 'package:it_desk/models/topic.dart';
 import 'package:it_desk/screens/topics_list_screen.dart';
 
 import '../constants.dart';
@@ -29,11 +30,15 @@ class MainCategoryScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
-                  'Hey, What would you like to learn today ?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26.0,
+                Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Text(
+                    'Hey, What would you like to learn today ?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26.0,
+                    ),
                   ),
                 ),
                 SizedBox(height: 40),
@@ -79,6 +84,9 @@ class SingleCategoryCard extends StatelessWidget {
   SingleCategoryCard({this.category});
   @override
   Widget build(BuildContext context) {
+    int totalPosts = Topic.getTopics()
+        .where((element) => element.category == this.category.categoryTag)
+        .length;
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, TopicsListScreen.routeName,
           arguments: category),
@@ -109,7 +117,7 @@ class SingleCategoryCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${category.totalPosts} posts',
+                    '$totalPosts posts',
                     style: TextStyle(
                       color: Colors.grey[700],
                     ),
