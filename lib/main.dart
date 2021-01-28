@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:it_desk/screens/LoginScreen.dart';
 import 'constants.dart';
 
 import 'screens/home_screen.dart';
@@ -12,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: kAppTitle,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,

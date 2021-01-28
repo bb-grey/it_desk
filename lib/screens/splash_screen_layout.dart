@@ -3,7 +3,6 @@ import 'package:it_desk/components/page_number_representer.dart';
 import 'package:it_desk/components/splash_button.dart';
 import 'package:it_desk/screens/main_category_screen.dart';
 import 'package:it_desk/screens/splash_screen.dart';
-import 'package:it_desk/screens/topics_list_screen.dart';
 import 'package:preload_page_view/preload_page_view.dart';
 
 import '../constants.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:it_desk/models/Topic.dart';
 import 'package:it_desk/models/category.dart';
-import 'package:it_desk/screens/LoginScreen.dart';
+import 'package:it_desk/screens/login_screen.dart';
 import 'package:it_desk/screens/solution_screen.dart';
 import 'package:intl/intl.dart';
 
